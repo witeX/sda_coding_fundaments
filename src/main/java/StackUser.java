@@ -1,9 +1,31 @@
 public class StackUser {
 
     public static void main(String[] args) {
-        Stack stack = new Stack(3);
+        Stack stack = new Stack(1000);
 
-        System.out.println("stack must be empty but is empty:" + stack.isEmpty());
+        System.out.println("push 4");
+        stack.push(4);
+        System.out.println(stack);
+        System.out.println("push 3");
+        stack.push(3);
+        System.out.println(stack);
+
+        System.out.println("pop" + stack.pop());
+        System.out.println(stack);
+
+        System.out.println("push 10");
+        stack.push(10);
+        System.out.println(stack);
+        System.out.println("push 11");
+        stack.push(11);
+        System.out.println(stack);
+
+        System.out.println("pop" + stack.pop());
+        System.out.println(stack);
+        System.out.println("=========================================");
+        // 2 -> 6 -> 3  Stack size is 3
+
+        /*System.out.println("stack must be empty but is empty:" + stack.isEmpty());
         System.out.println("stack size must be 0 and  is: " + stack.size());
 
         stack.push(10);
@@ -39,6 +61,6 @@ public class StackUser {
             System.out.println("We must not get that line in the logs");
         } catch (IllegalStateException e) {
             System.out.println("Exception text must be 'underflow' and text is = " + e.getMessage());
-        }
+        }*/
     }
 }
