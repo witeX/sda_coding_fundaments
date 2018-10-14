@@ -1,8 +1,9 @@
 public class StackUser {
 
     public static void main(String[] args) {
-        Stack stack = new Stack(1000);
+        LinkedStack stack = new LinkedStack(1000);
 
+        System.out.println(stack);
         System.out.println("push 4");
         stack.push(4);
         System.out.println(stack);
@@ -10,7 +11,7 @@ public class StackUser {
         stack.push(3);
         System.out.println(stack);
 
-        System.out.println("pop" + stack.pop());
+        System.out.println("pop " + stack.pop());
         System.out.println(stack);
 
         System.out.println("push 10");
@@ -20,7 +21,7 @@ public class StackUser {
         stack.push(11);
         System.out.println(stack);
 
-        System.out.println("pop" + stack.pop());
+        System.out.println("pop " + stack.pop());
         System.out.println(stack);
         System.out.println("=========================================");
         // 2 -> 6 -> 3  Stack size is 3
