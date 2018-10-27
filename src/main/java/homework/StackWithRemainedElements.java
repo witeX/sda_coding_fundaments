@@ -3,21 +3,21 @@ package homework;
 public class StackWithRemainedElements { // that is implementation of stack with Array
 
     private final int[] array; //arrays as storage for stack elements
-    private int remainedElements;// remained elements inside stack
+    private int freeElements;// remained elements inside stack
 
 
     public StackWithRemainedElements(int size) {  // public constructor what create Stack object and create initial state for it.
         array = new int[size];
-        remainedElements = size;
+        freeElements = size;
     }
 
 
     public boolean isEmpty() {
-        return remainedElements == array.length;
+        return freeElements == array.length;
     }// return value of stackSize field
 
     public void push(int value) {// method push - insert action. Add value to the top of the stack
-        if (isStackWillOverflow()) { // I verify is tack already full and next element will overflow stack
+        if (isFull()) { // I verify is tack already full and next element will overflow stack
             throw new IllegalStateException("overflow");// creating common exception for illegal state, with message "overflow" and throw it. That will stop method execution
         }
 
@@ -26,12 +26,12 @@ public class StackWithRemainedElements { // that is implementation of stack with
 
     }
 
-    private boolean isStackWillOverflow() {
-        return remainedElements == 0;
+    private boolean isFull() {
+        return freeElements == 0;
     }
 
     private void reduceFreeElements() {
-        remainedElements--;// after success adding value to the stack, I increase stack size counter
+        freeElements--;// after success adding value to the stack, I increase stack size counter
     }
 
     private void addValueToArray(int value) {
@@ -39,7 +39,7 @@ public class StackWithRemainedElements { // that is implementation of stack with
     }
 
     private int getCurrentArrayIndexOfTopElement() { // calculate correct index of array for last element regarding of size of stack
-        return array.length - (remainedElements + 1);
+        return array.length - (freeElements + 1);
     }
 
     public int pop() { // pop value from stack - get and delete value. remove top element from stack and return it value
@@ -53,7 +53,7 @@ public class StackWithRemainedElements { // that is implementation of stack with
     }
 
     private void increaseFreeSize() { // after removing element from stack need to decrease stack size counter
-        remainedElements++;
+        freeElements++;
     }
 
     private int getLastElement() { //resolving stack top element
@@ -61,7 +61,7 @@ public class StackWithRemainedElements { // that is implementation of stack with
     }
 
     public int size() {
-        return array.length - remainedElements;
+        return array.length - freeElements;
     }// return true if stackSize is 0
 
     @Override
@@ -88,7 +88,7 @@ public class StackWithRemainedElements { // that is implementation of stack with
     public StackWithRemainedElements copy() {
         final StackWithRemainedElements copy = new StackWithRemainedElements(array.length);
         System.arraycopy(array, 0, copy.array, 0, array.length);
-        copy.remainedElements = remainedElements;
+        copy.freeElements = freeElements;
         return copy;
     }
 
@@ -97,11 +97,12 @@ public class StackWithRemainedElements { // that is implementation of stack with
         for (int i = 0; i < array.length; i++) {
             copy.array[i] = array[i];
         }
-        copy.remainedElements = remainedElements;
+        copy.freeElements = freeElements;
         return copy;
     }
 
     public static void main(String[] args) {
+
         StackWithRemainedElements stack = new StackWithRemainedElements(4);
         stack.push(1);
         stack.push(2);

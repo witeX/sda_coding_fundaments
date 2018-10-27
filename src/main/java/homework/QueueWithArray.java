@@ -16,7 +16,7 @@ public class QueueWithArray {
         if (head == array.length) {// if our queueSize already equals to maximum queue size, then we go into if block
             throw new IllegalStateException("overflow"); // creating common exception for illegal state, with message "overflow" and throw it. That will stop method execution
         }
-        if (head >= 0) {
+        if (head > 0) {
             System.arraycopy(array, 0, array, 1, head);
         }
         array[0] = value;
