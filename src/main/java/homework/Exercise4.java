@@ -9,6 +9,13 @@ public class Exercise4 {
         Scanner scan = new Scanner(System.in);
         System.out.println("Please enter five 5 positive  values");
 
+
+        int sum = positiveNumberSum(scan) + negativeNumberSum(scan);
+
+        System.out.println("Sum is: " + sum);
+    }
+
+    private static int positiveNumberSum(Scanner scan) {
         int readCount = 0;
         int sum = 0;
         while (readCount < 5) {
@@ -20,10 +27,12 @@ public class Exercise4 {
             sum += number;
             readCount++;
         }
+        return sum;
+    }
 
-        System.out.println("Please enter five 5 negative values");
-
-        readCount = 0;
+    private static int negativeNumberSum(Scanner scan) {
+        int readCount = 0;
+        int sum = 0;
         while (readCount < 5) {
             int number = scan.nextInt();
             if (number >= 0) {
@@ -33,6 +42,6 @@ public class Exercise4 {
             sum += number;
             readCount++;
         }
-        System.out.println("Sum is: " + sum);
+        return sum;
     }
 }
